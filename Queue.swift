@@ -7,6 +7,13 @@ import UIKit
 
 //Используется в Grand Central Dispatch (GCD) в Swift при создание serial очереди
 
+//Типовые операции
+
+//enqueue — добавление в конец очереди.
+//dequeue — удаление с начала очереди.
+//head - голова очереди
+//tail - хвост очереди
+
 
 struct Queue<T> {
     
@@ -20,22 +27,18 @@ struct Queue<T> {
         return elements.isEmpty
     }
     
-    //голова очереди
     var head: T? {
         return elements.first
     }
     
-    //хвост очереди
     var tail: T? {
         return elements.last
     }
     
-    //добавить в очередь
     mutating func enqueue(element: T) {
         elements.append(element)
     }
     
-    //удалить из очереди
     mutating func dequeue() {
         if !isEmpty {
             elements.removeFirst()
